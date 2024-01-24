@@ -1,0 +1,11 @@
+name: YashaShop
+version: '${project.version}'
+main: com.minerail.yashashop.main.YashaShop
+api-version: '1.13'
+load: STARTUP
+authors: [x_Kefir]
+depend: [Vault]
+commands:
+  categories:
+  ysreload:
+  yshelp:
