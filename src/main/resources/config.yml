@@ -1,12 +1,9 @@
 CategoryMenus:
   CategoryMenu:
-    isEnabled: true
     rows: 3
     title: '&c&lKategorie'
     filler-item:
-      displayName: ' '
       material: 'GRAY_STAINED_GLASS_PANE'
-      slots: '0-26'
     categories:
       blocks:
         material: 'GRASS_BLOCK'
@@ -17,4 +14,44 @@ CategoryMenus:
         slot: 11
         #Zalecam wprowadzić wartość taką samą jak przy displayname.
         NPC: '&b&lBloki'
-        filename: 'ExampleSection.yml'
+        filename: 'BlocksCategory.yml'
+
+      items:
+        material: 'NAUTILUS_SHELL'
+        displayname: '&c&lPrzedmioty'
+        lore:
+          - 'to jest lore'
+          - 'ttttttt'
+        slot: 13
+        NPC: 'nazwa'
+        filename: 'ItemsCategory.yml'
+
+      food:
+        material: 'APPLE'
+        displayname: '&c&lJedzenie'
+        lore:
+          - 'to jest lore'
+          - 'ttttttt'
+        slot: 14
+        NPC: 'nazwa'
+        filename: 'FoodCategory.yml'
+
+      tools:
+        material: 'IRON_PICKAXE'
+        displayname: '&c&lNarzędzia'
+        lore:
+          - 'to jest lore'
+          - 'ttttttt'
+        slot: 15
+        NPC: 'nazwa'
+        filename: 'ToolsCategory.yml'
+
+      redstone:
+        material: 'IRON_PICKAXE'
+        displayname: '&c&lRedstone'
+        lore:
+          - 'to jest lore'
+          - 'ttttttt'
+        slot: 12
+        NPC: 'nazwa'
+        filename: 'RedstoneCategory.yml'

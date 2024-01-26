@@ -9,7 +9,6 @@ import org.bukkit.entity.*;
 
 
 public class CategoryCommand implements CommandExecutor {
-    private YashaShop main;
     public CategoryCommand(YashaShop categories) {
     }
 

@@ -18,14 +18,6 @@ public class ConfigManager {
     public static ConfigurationSection sec = config.getConfigurationSection("CategoryMenus.CategoryMenu.categories");
     final static File file = new File(Bukkit.getServer().getPluginManager().getPlugin("YashaShop").getDataFolder(), "config.yml");
 
-    public static List<String> getItemLoreList(String path) {
-        List<String> loreConfig = new ArrayList<>();
-        for (String lore : config.getStringList(path)) {
-            loreConfig.add(ColorUtils.translateColorCodes(lore));
-        }
-
-        return loreConfig;
-    }
     public static String getItemDisplayName(String path) {
         return ColorUtils.translateColorCodes(config.getString(path));
     }
@@ -44,7 +36,7 @@ public class ConfigManager {
 
     //Readers for config file
     public static String getCategoryTitle() {
-        return ColorUtils.translateColorCodes(config.getString("guiMenus.categories.title"));
+        return ColorUtils.translateColorCodes(config.getString("CategoryMenus.CategoryMenu.title"));
     }
     public static String getConfigString(String stringpath) {
         return config.getString(stringpath);
@@ -52,9 +44,5 @@ public class ConfigManager {
 
     public static Integer getConfigInt(String intPath) {
         return config.getInt(intPath);
-    }
-
-    public static String getInventoryName() {
-       return ConfigManager.config.getString("guiMenus.categories.title");
     }
 }
