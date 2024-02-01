@@ -1,0 +1,14 @@
+Section:
+  enabled: true
+  rows: 3
+  #Don't change the name of this Yaml section!
+  sections:
+    Kolorowe-bloki:
+      displayname: '&c&lDisplayname'
+      slot: 12
+      lore:
+        - ''
+      items:
+        OAK_WOOD:
+          sell: -1
+          buy: -1

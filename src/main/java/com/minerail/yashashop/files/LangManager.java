@@ -12,7 +12,7 @@ public class LangManager {
         if (!file.exists()) {
             yashaShop.saveResource("messages.yml", false);
             System.out.println("messages.yml successfully created!");
-        } else if (file.exists()) {
+        } else {
             lang = YamlConfiguration.loadConfiguration(file);
             System.out.println("File messages.yml successfully loaded!");
         }

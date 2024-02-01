@@ -4,9 +4,7 @@ import com.minerail.yashashop.commands.CategoryCommand;
 import com.minerail.yashashop.commands.ReloadCommand;
 
 import com.minerail.yashashop.files.FileManager;
-import com.minerail.yashashop.files.ConfigManager;
 import com.minerail.yashashop.files.LangManager;
-import mc.obliviate.inventory.InventoryAPI;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -20,11 +18,10 @@ public final class YashaShop extends JavaPlugin {
         System.out.printf("Loading config files..");
 
         //Setup config
-        ConfigManager.setupConfigFile(this);
+        FileManager.setupConfigFiles(this);
         //Loading lang file
         LangManager.setupLangFile(this);
         //Loading or creating files
-        FileManager.readingConfigFile();
 
 
         //Loading commands
@@ -32,12 +29,6 @@ public final class YashaShop extends JavaPlugin {
         getCommand("ysreload").setExecutor(new ReloadCommand(this));
         System.out.println("Commands successfully loaded!");
 
-
-        //Hooking info
-
-        //Gui hook and load
-        new InventoryAPI(this).init();
-        System.out.println("Loaded Gui API.");
 
         //Vault hook
         System.out.println("Connecting to Vault..");

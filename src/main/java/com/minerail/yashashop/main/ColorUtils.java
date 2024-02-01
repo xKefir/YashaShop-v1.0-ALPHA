@@ -4,8 +4,6 @@ import net.md_5.bungee.api.chat.ComponentBuilder;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
 
-import java.util.List;
-import java.util.Spliterator;
 
 
 public class ColorUtils {

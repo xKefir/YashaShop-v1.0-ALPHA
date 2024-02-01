@@ -1,4 +1,5 @@
 CategoryMenus:
+  #You can edit the values and names of sections below "categories", values: material, displayname, lore, slot, filename is required to correctly plugin work.
   CategoryMenu:
     rows: 3
     title: '&c&lKategorie'
@@ -12,7 +13,9 @@ CategoryMenus:
           - '&ctest'
           - '&c&lDupa'
         slot: 11
-        #Zalecam wprowadzić wartość taką samą jak przy displayname.
+        #This string is optional, you can delete this if you don't need it.
+        #Look at "items" Yaml section, trust me, you can delete it.
+        #I recommend entering the same value as for displayname.
         NPC: '&b&lBloki'
         filename: 'BlocksCategory.yml'
 
@@ -23,7 +26,6 @@ CategoryMenus:
           - 'to jest lore'
           - 'ttttttt'
         slot: 13
-        NPC: 'nazwa'
         filename: 'ItemsCategory.yml'
 
       food:

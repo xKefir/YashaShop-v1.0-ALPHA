@@ -31,6 +31,14 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.2.4</version>
+          <configuration>
+              <relocations>
+                  <relocation>
+                      <pattern>dev.triumphteam.gui</pattern>
+                      <shadedPattern>com.minerail.yashashop.gui</shadedPattern>
+                  </relocation>
+              </relocations>
+          </configuration>
         <executions>
           <execution>
             <phase>package</phase>
@@ -74,7 +82,7 @@
       <dependency>
           <groupId>org.spigotmc</groupId>
           <artifactId>spigot-api</artifactId>
-          <version>1.20.1-R0.1-SNAPSHOT</version>
+          <version>1.20.4-R0.1-SNAPSHOT</version>
           <scope>provided</scope>
       </dependency>
       <dependency>
@@ -83,9 +91,9 @@
           <version>4.15.0</version>
       </dependency>
       <dependency>
-          <groupId>com.github.hamza-cskn.obliviate-invs</groupId>
-          <artifactId>core</artifactId>
-          <version>4.3.0</version>
+          <groupId>dev.triumphteam</groupId>
+          <artifactId>triumph-gui</artifactId>
+          <version>3.1.7</version>
       </dependency>
       <dependency>
           <groupId>com.github.cryptomorin</groupId>

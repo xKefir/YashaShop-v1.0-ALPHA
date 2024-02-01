@@ -1,12 +1,10 @@
+com\minerail\yashashop\menus\GuiManager.class
 com\minerail\yashashop\commands\HelpCommand.class
-com\minerail\yashashop\files\ConfigManager.class
 com\minerail\yashashop\main\BuyingItems.class
 com\minerail\yashashop\main\ColorUtils.class
 com\minerail\yashashop\main\SellingItems.class
 com\minerail\yashashop\commands\ReloadCommand.class
 com\minerail\yashashop\files\FileManager.class
 com\minerail\yashashop\files\LangManager.class
-com\minerail\yashashop\menus\CategoriesMenu.class
 com\minerail\yashashop\commands\CategoryCommand.class
-com\minerail\yashashop\files\SectionsFileManager.class
 com\minerail\yashashop\main\YashaShop.class
