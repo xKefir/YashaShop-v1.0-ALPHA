@@ -69,7 +69,7 @@ public class GuiManager {
                 categoriesGui.setItem(slotOfCategory, items);
             }
         }
-        plugin.getLogger().info("Successfully loaded items for Categories GUI!");
+        plugin.getLogger().info("Successfully loaded itemss for Categories GUI!");
     }
     public static void showCategoriesGui(Player player) {
         categoriesGui.setDefaultClickAction(event -> event.setCancelled(true));
