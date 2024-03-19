@@ -1,8 +1,8 @@
 package com.minerail.yashashop.utils;
 
 
+import com.minerail.yashashop.menus.Guis;
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
@@ -20,8 +20,9 @@ public class SectionFilesUtils {
     private static InputStream inputS;
     private Path categoriesDirectory;
     private Path categoryFilePath;
-    private YamlConfiguration sectionFIle;
-    public Map<String, YamlConfiguration> loader = new LinkedHashMap<>();
+    private static YamlConfiguration sectionFIle;
+    private Map<String, YamlConfiguration> loader = new LinkedHashMap<>();
+    private static Guis guis;
 
     public SectionFilesUtils(ConfigUtils configUtils) {
     }
@@ -46,8 +47,31 @@ public class SectionFilesUtils {
             }
         }
     }
-    public void createGuisAndItems() {
+    public void buildShops() {
+        this.guis = new Guis(this);
+        for (Map.Entry<String, YamlConfiguration> entry : loader.entrySet()) {
+            String id = entry.getKey();
+            YamlConfiguration file = entry.getValue();
+            guis.buildItemsForCategoryGui(file.getBoolean("Item.enabled"),
+                    file.getString("Item.displayname"),
+                    file.getString("Item.material"),
+                    id,
+                    file.getInt("Item.slot")
+            );
 
+            guis.createSectionGuis(id,
+                    file.getString("Section.GuiSettings.displayName"),
+                    file.getInt("Section.GuiSettings.rows"),
+                    file.getInt("Section.GuiSettings.pageSize")
+            );
+            for (String it : file.getConfigurationSection("Section.GuiSettings.elements").getKeys(false)) {
+                guis.buildItemsForSection(file.getString("Section.GuiSettings.elements." + it + ".material"),
+                        file.getDouble("Section.GuiSettings.elements." + it + ".buy"),
+                        file.getDouble("Section.GuiSettings.elements." + it + ".sell")
+                );
+            }
+
+        }
     }
 
 }

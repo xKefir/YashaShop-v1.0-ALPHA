@@ -12,8 +12,8 @@ cancel-button: '<!i><color:dark_red>Anuluj</!i>'
 next-page: '<!i><color:green>Następna Strona</!i>'
 previous-page: '<!i><color:red>Poprzednia Strona</!i>'
 
-buy-text-in-lore: '<!i><color:yellow>Kup za<color:white>:<color:aqua> '
-sell-text-in-lore: '<!i><color:blue>Sprzedaj za<color:white>:<color:aqua> '
+buy-text-in-lore: '<!i><color:yellow>Kup za<color:white>:<color:aqua> <cost>'
+sell-text-in-lore: '<!i><color:blue>Sprzedaj za<color:white>:<color:aqua> <sell> '
 click-actions:
   - '<!i><color:yellow>LPM <color:gray>aby kupić przedmiot</!i> '
   - '<!i><color:yellow>PPM <color:gray>aby sprzedać przedmiot</!i>'

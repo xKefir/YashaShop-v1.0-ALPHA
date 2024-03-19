@@ -24,7 +24,7 @@ public class ConfigUtils {
     private static File c1;
 
 
-    private SectionFilesUtils sections;
+    private static SectionFilesUtils sections;
     private LinkedHashSet<String> elements = new LinkedHashSet<String>();
 
 
