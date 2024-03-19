@@ -1,59 +1,10 @@
-CategoryMenus:
-  #You can edit the values and names of sections below "categories", values: material, displayname, lore, slot, filename is required to correctly plugin work.
-  CategoryMenu:
-    rows: 3
-    title: '&c&lKategorie'
-    filler-item:
-      material: 'GRAY_STAINED_GLASS_PANE'
-    categories:
-      blocks:
-        material: 'GRASS_BLOCK'
-        displayname: '&b&lBloki'
-        lore:
-          - '&ctest'
-          - '&c&lDupa'
-        slot: 11
-        #This string is optional, you can delete this if you don't need it.
-        #Look at "items" Yaml section, trust me, you can delete it.
-        #I recommend entering the same value as for displayname.
-        NPC: '&b&lBloki'
-        filename: 'BlocksCategory.yml'
-
-      items:
-        material: 'NAUTILUS_SHELL'
-        displayname: '&c&lPrzedmioty'
-        lore:
-          - 'to jest lore'
-          - 'ttttttt'
-        slot: 13
-        filename: 'ItemsCategory.yml'
-
-      food:
-        material: 'APPLE'
-        displayname: '&c&lJedzenie'
-        lore:
-          - 'to jest lore'
-          - 'ttttttt'
-        slot: 14
-        NPC: 'nazwa'
-        filename: 'FoodCategory.yml'
-
-      tools:
-        material: 'IRON_PICKAXE'
-        displayname: '&c&lNarzędzia'
-        lore:
-          - 'to jest lore'
-          - 'ttttttt'
-        slot: 15
-        NPC: 'nazwa'
-        filename: 'ToolsCategory.yml'
-
-      redstone:
-        material: 'IRON_PICKAXE'
-        displayname: '&c&lRedstone'
-        lore:
-          - 'to jest lore'
-          - 'ttttttt'
-        slot: 12
-        NPC: 'nazwa'
-        filename: 'RedstoneCategory.yml'
+categoryGUI:
+  enabled: true
+  displayName: '<!i><gradient:#23f2ff:#05ff0f><b>Kategorie'
+  rows: 6
+  elements:
+    Mechanik: true
+    Farmer: true
+    Kowal: true
+    Archeolog: true
+  #You can edit these items in files for example "Mechanik.yml" in "Shops" directory

@@ -1,63 +1,38 @@
 package com.minerail.yashashop.main;
-
-import com.minerail.yashashop.commands.CategoryCommand;
-import com.minerail.yashashop.commands.ReloadCommand;
-
-import com.minerail.yashashop.files.FileManager;
-import com.minerail.yashashop.files.LangManager;
-import net.milkbowl.vault.economy.Economy;
-import org.bukkit.plugin.RegisteredServiceProvider;
+import com.minerail.yashashop.commands.YshopCmd;
+import com.minerail.yashashop.utils.ConfigUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.IOException;
+
+
 public final class YashaShop extends JavaPlugin {
-
-
+    private ConfigUtils config = new ConfigUtils(this);
     @Override
     public void onEnable() {
-        //Plugin Loading
-        System.out.printf("Loading config files..");
-
-        //Setup config
-        FileManager.setupConfigFiles(this);
-        //Loading lang file
-        LangManager.setupLangFile(this);
-        //Loading or creating files
-
-
-        //Loading commands
-        getCommand("categories").setExecutor(new CategoryCommand(this));
-        getCommand("ysreload").setExecutor(new ReloadCommand(this));
-        System.out.println("Commands successfully loaded!");
-
-
-        //Vault hook
-        System.out.println("Connecting to Vault..");
-        if (!setupEconomy() ) {
-            getLogger().severe(String.format("Disabling plugin. You need a Vault plugin."));
-            getServer().getPluginManager().disablePlugin(this);
-            return;
-        } else {
-            System.out.println("Successfully connected to Vault!");
+        //Cmds
+        try {
+            this.config.createOrLoadConfig();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InvalidConfigurationException e) {
+            throw new RuntimeException(e);
         }
-
-
-        //Loaded final message
-        System.out.println("Plugin successfully loaded!");
+        setupEconomy();
+        getCommand("ysklep").setExecutor(new YshopCmd(this));
+        //Hooks
     }
-    private boolean setupEconomy() {
+    public boolean setupEconomy() {
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
+            getServer().getPluginManager().disablePlugin(this);
             return false;
-        }
-        RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
-        if (rsp == null) {
-            return true;
-        }
-        Economy econ = rsp.getProvider();
-        return econ != null;
+        } else { return true;}
     }
     @Override
     public void onDisable() {
-        System.out.println("Disabling plugin..");
-        System.out.println("Plugin successfully disabled.");
+        getLogger().info("Disabling plugin..");
     }
 }

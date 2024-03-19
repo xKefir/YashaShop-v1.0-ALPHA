@@ -6,6 +6,6 @@ load: STARTUP
 authors: [x_Kefir]
 depend: [Vault]
 commands:
-  categories:
+  ysklep:
   ysreload:
   yshelp:

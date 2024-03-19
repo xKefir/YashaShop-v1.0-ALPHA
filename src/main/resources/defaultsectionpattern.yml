@@ -1,0 +1,18 @@
+Item:
+  enabled: true
+  displayname: '<gradient:#ff91fb:#b2ffdf><b>Farmer'
+  slot: 12
+  material: 'WHEAT_SEEDS'
+  citizen: ''
+
+Section:
+  GuiSettings:
+    guiID: 'farmer'
+    displayName: '<gradient:#ff91fb:#b2ffdf><b>Farmer'
+    rows: 6
+    pageSize: 45
+    elements:
+      '1':
+        material: 'STONE'
+        buy: 3.1
+        sell: 0.2
