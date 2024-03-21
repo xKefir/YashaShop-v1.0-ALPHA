@@ -23,7 +23,6 @@ public class SectionFilesUtils {
     private static YamlConfiguration sectionFIle;
     private Map<String, YamlConfiguration> loader = new LinkedHashMap<>();
     private static Guis guis;
-
     public SectionFilesUtils(ConfigUtils configUtils) {
     }
 
@@ -40,18 +39,22 @@ public class SectionFilesUtils {
                 if (!Files.exists(categoryFilePath)) {
                     Files.copy(inputS, categoryFilePath);
                     sectionFIle = YamlConfiguration.loadConfiguration(new File("plugins/YashaShop/Shops/" + file + ".yml"));
+                    loader.put(file, sectionFIle);
                 } else {
                     sectionFIle = YamlConfiguration.loadConfiguration(new File("plugins/YashaShop/Shops/" + file + ".yml"));
                     loader.put(file, sectionFIle);
+                    buildShops();
                 }
             }
         }
     }
     public void buildShops() {
         this.guis = new Guis(this);
+        guis.create(this.configUtils.config.getString("categoryGUI.displayName"), this.configUtils.config.getInt("categoryGUI.rows"));
         for (Map.Entry<String, YamlConfiguration> entry : loader.entrySet()) {
             String id = entry.getKey();
             YamlConfiguration file = entry.getValue();
+            pl.getLogger().info("test1 "+ id);
             guis.buildItemsForCategoryGui(file.getBoolean("Item.enabled"),
                     file.getString("Item.displayname"),
                     file.getString("Item.material"),
@@ -64,14 +67,19 @@ public class SectionFilesUtils {
                     file.getInt("Section.GuiSettings.rows"),
                     file.getInt("Section.GuiSettings.pageSize")
             );
+            id = null;
+            file = null;
+        }
+        for (Map.Entry<String, YamlConfiguration> entry : loader.entrySet()) {
+            YamlConfiguration file = entry.getValue();
             for (String it : file.getConfigurationSection("Section.GuiSettings.elements").getKeys(false)) {
                 guis.buildItemsForSection(file.getString("Section.GuiSettings.elements." + it + ".material"),
                         file.getDouble("Section.GuiSettings.elements." + it + ".buy"),
                         file.getDouble("Section.GuiSettings.elements." + it + ".sell")
                 );
             }
-
         }
+
     }
 
 }

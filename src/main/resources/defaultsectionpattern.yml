@@ -7,7 +7,6 @@ Item:
 
 Section:
   GuiSettings:
-    guiID: 'farmer'
     displayName: '<gradient:#ff91fb:#b2ffdf><b>Farmer'
     rows: 6
     pageSize: 45

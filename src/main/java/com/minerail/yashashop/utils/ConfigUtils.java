@@ -18,17 +18,22 @@ public class ConfigUtils {
     }
     public ConfigUtils(SectionFilesUtils sectionFilesUtils) {
     }
-    private static Plugin plugin;
+    public ConfigUtils(LangManager langManager) {
+    }
 
+    public static Plugin plugin;
     public static YamlConfiguration config;
+
     private static File c1;
 
-
     private static SectionFilesUtils sections;
-    private LinkedHashSet<String> elements = new LinkedHashSet<String>();
+
+    private LinkedHashSet<String> elements = new LinkedHashSet<>();
+    private LangManager langManager;
 
 
     public void createOrLoadConfig() throws IOException, InvalidConfigurationException {
+        this.langManager = new LangManager(this);
         plugin = Bukkit.getPluginManager().getPlugin("YashaShop");
         c1 = new File(plugin.getDataFolder(), "config.yml");
         if (!c1.exists()) {
@@ -36,6 +41,7 @@ public class ConfigUtils {
             config = YamlConfiguration.loadConfiguration(c1);
         } else {
             config = YamlConfiguration.loadConfiguration(c1);
+            langManager.createMessages();
             getElements();
         }
     }

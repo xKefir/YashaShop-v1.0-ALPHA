@@ -1,6 +1,7 @@
 package com.minerail.yashashop.main;
 import com.minerail.yashashop.commands.YshopCmd;
 import com.minerail.yashashop.utils.ConfigUtils;
+import com.minerail.yashashop.utils.LangManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.plugin.Plugin;
@@ -22,7 +23,7 @@ public final class YashaShop extends JavaPlugin {
             throw new RuntimeException(e);
         }
         setupEconomy();
-        getCommand("ysklep").setExecutor(new YshopCmd(this));
+        getCommand("yshop").setExecutor(new YshopCmd(this));
         //Hooks
     }
     public boolean setupEconomy() {

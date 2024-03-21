@@ -8,3 +8,7 @@ categoryGUI:
     Kowal: true
     Archeolog: true
   #You can edit these items in files for example "Mechanik.yml" in "Shops" directory
+
+Messages:
+  prefix: true
+  space-in-lore: true
