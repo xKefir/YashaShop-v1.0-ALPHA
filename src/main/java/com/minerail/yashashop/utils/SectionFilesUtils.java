@@ -50,26 +50,28 @@ public class SectionFilesUtils {
     }
     public void buildShops() {
         this.guis = new Guis(this);
+        guis.itemsToAdd.clear();
         guis.create(this.configUtils.config.getString("categoryGUI.displayName"), this.configUtils.config.getInt("categoryGUI.rows"));
         for (Map.Entry<String, YamlConfiguration> entry : loader.entrySet()) {
             String id = entry.getKey();
             YamlConfiguration file = entry.getValue();
-            pl.getLogger().info("test1 "+ id);
+            pl.getLogger().info("test1 " + id);
             guis.buildItemsForCategoryGui(file.getBoolean("Item.enabled"),
                     file.getString("Item.displayname"),
                     file.getString("Item.material"),
                     id,
                     file.getInt("Item.slot")
             );
+        }
 
+            /*
             guis.createSectionGuis(id,
                     file.getString("Section.GuiSettings.displayName"),
                     file.getInt("Section.GuiSettings.rows"),
                     file.getInt("Section.GuiSettings.pageSize")
-            );
-            id = null;
-            file = null;
-        }
+            );*/
+
+        /*
         for (Map.Entry<String, YamlConfiguration> entry : loader.entrySet()) {
             YamlConfiguration file = entry.getValue();
             for (String it : file.getConfigurationSection("Section.GuiSettings.elements").getKeys(false)) {
@@ -78,7 +80,7 @@ public class SectionFilesUtils {
                         file.getDouble("Section.GuiSettings.elements." + it + ".sell")
                 );
             }
-        }
+        }*/
 
     }
 
